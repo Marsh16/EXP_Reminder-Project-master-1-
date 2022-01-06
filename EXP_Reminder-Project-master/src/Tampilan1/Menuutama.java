@@ -1,7 +1,5 @@
-// tambah calender
-// tambah pop up reminder
-// data tersimpan didalam database dan sesuai akun 
-//data menampilkan barang, kategori, dan tanggal sesuai login akun pengguna
+//terbr
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -361,7 +359,7 @@ public class Menuutama extends javax.swing.JFrame {
     }
 
     void addData1(JTextField kategori, JTextField barang, JDateChooser tanggal) {
-SimpleDateFormat formatdt = new SimpleDateFormat("dd MM yyyy");
+SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
 String dt = formatdt.format(tanggal.getDate());
 
         try {
@@ -418,7 +416,7 @@ String dt = formatdt.format(tanggal.getDate());
         public Component getTableCellRendererComponent(JTable tabel, Object obj, boolean isSelected, boolean hasFocus, int baris, int kolom) {
             long datenow = System.currentTimeMillis();
             Date date1 = new Date(datenow);
-            SimpleDateFormat formatdt = new SimpleDateFormat("dd MM yyyy");
+            SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
             
             Component comp = super.getTableCellRendererComponent(tabel, obj, isSelected, hasFocus, baris, kolom);
 
@@ -444,7 +442,7 @@ String dt = formatdt.format(tanggal.getDate());
                     }
                 } catch (ParseException ex) {
                     Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } 
 
             }
 
@@ -452,13 +450,13 @@ String dt = formatdt.format(tanggal.getDate());
         }
     }
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
-        countLines1();
+       try { countLines1();
 
         addData1(kategori, barang, tanggal);
 
         // TODO add your handling code here:
-        try {
-            SimpleDateFormat formatdt = new SimpleDateFormat("dd MM yyyy");
+        
+            SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
             String date = formatdt.format(tanggal.getDate());
             //Date ttt = tanggal.getDate();
             long datenow = System.currentTimeMillis();
@@ -490,8 +488,8 @@ String dt = formatdt.format(tanggal.getDate());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "Tanggal kosong");
         }
-        DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel();
-        tMOdel.setRowCount(0);
+        DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel(); //untuk clear table
+        tMOdel.setRowCount(0); //untuk import
         importmenu();
         TableColumn kolomTabel;
         kolomTabel = tabel.getColumnModel().getColumn(0);
