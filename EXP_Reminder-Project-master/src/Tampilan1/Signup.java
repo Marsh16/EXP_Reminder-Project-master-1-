@@ -3,9 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Tampilan1;
-
-import java.awt.Image;
-import java.awt.Toolkit;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -122,8 +119,10 @@ public class Signup extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Account Already Exist, Silakan login");            
                     break;
                 }
-
-            }
+               
+                
+       }
+             
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -263,8 +262,7 @@ public class Signup extends javax.swing.JFrame {
     private void buatakun1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buatakun1ActionPerformed
        createFolder();
         countLines();
-        addData(username, password);
-        JOptionPane.showMessageDialog(null, "Account Created");
+        addData(username, password);      
         this.setVisible(false);
         new Login().setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_buatakun1ActionPerformed
