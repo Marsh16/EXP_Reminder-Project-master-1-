@@ -82,7 +82,9 @@ public class Menuutama extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         Kembali = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        clear = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        edit = new javax.swing.JButton();
 
         tabel1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,6 +163,7 @@ public class Menuutama extends javax.swing.JFrame {
             }
         });
 
+        tanggal.setDateFormatString("dd-MM-yyyy");
         tanggal.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 tanggalPropertyChange(evt);
@@ -181,7 +184,7 @@ public class Menuutama extends javax.swing.JFrame {
             }
         });
 
-        HapusSemua.setText("Clear All");
+        HapusSemua.setText("Delete All");
         HapusSemua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HapusSemuaActionPerformed(evt);
@@ -193,7 +196,7 @@ public class Menuutama extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Kategori", "Barang", "Tanggal"
+                "Category", "Item", "Expired Date"
             }
         ) {
             Class[] types = new Class [] {
@@ -209,6 +212,7 @@ public class Menuutama extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/1024px-Circle-icons-profile.svg.png"))); // NOI18N
         jLabel6.setText("username");
+        jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
         mute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/74554659-audio-symbol-with-speaker-volume-icon-inside-round-silver-and-black-button-emblem-on-black-backgroun.jpg"))); // NOI18N
         mute.addActionListener(new java.awt.event.ActionListener() {
@@ -228,44 +232,64 @@ public class Menuutama extends javax.swing.JFrame {
 
         jLabel3.setText("Expired Date");
 
+        clear.setText("Clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/qw.jpg"))); // NOI18N
+
+        edit.setText("Edit");
+        edit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(barang, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(clear, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(simpan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(HapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(Kembali)
-                        .addGap(359, 359, 359)
-                        .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGap(6, 6, 6)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(kategori, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(barang, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(HapusSemua)
-                                            .addGap(28, 28, 28)
-                                            .addComponent(simpan, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,35 +308,34 @@ public class Menuutama extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
                     .addComponent(tanggal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(hapus)
-                    .addComponent(simpan)
-                    .addComponent(HapusSemua))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(simpan)
+                    .addComponent(clear))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(HapusSemua)
+                    .addComponent(hapus)
+                    .addComponent(edit))
+                .addGap(73, 73, 73)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Kembali)
-                    .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
+            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 651, Short.MAX_VALUE)
         );
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/qw.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -346,6 +369,7 @@ public class Menuutama extends javax.swing.JFrame {
             Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     void importmenu() {
         String filepath = database1 + "\\" + jLabel6.getText() + ".txt";
         File file = new File(filepath);
@@ -391,8 +415,8 @@ public class Menuutama extends javax.swing.JFrame {
     }
 
     void addData1(JTextField kategori, JTextField barang, JDateChooser tanggal) {
-SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
-String dt = formatdt.format(tanggal.getDate());
+        SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
+        String dt = formatdt.format(tanggal.getDate());
 
         try {
             RandomAccessFile raf = new RandomAccessFile(database1 + "\\" + jLabel6.getText() + ".txt", "rw");
@@ -400,7 +424,7 @@ String dt = formatdt.format(tanggal.getDate());
                 raf.readLine();
             }
             if (tanggal.getDate() != null) {
-                
+
                 raf.writeBytes(kategori.getText() + "," + barang.getText() + "," + dt + "," + "\r\n");
             }
 
@@ -412,36 +436,7 @@ String dt = formatdt.format(tanggal.getDate());
 
     }
 
-    public class CustomTableCellRenderer extends DefaultTableCellRenderer {
-
-        public Component getTableCellRendererComponent(JTable tabel, Object obj, boolean isSelected, boolean hasFocus, int row, int column) {
-            long datenow = System.currentTimeMillis();
-            Date date1 = new Date(datenow);
-
-            Component comp = super.getTableCellRendererComponent(tabel, obj, isSelected, hasFocus, row, column);
-
-            if (isSelected) {
-                comp.setBackground(Color.blue);
-            } else {
-//                DefaultTableModel model = (DefaultTableModel) tabel.getModel().getValueAt(baris, 2);
-// get baris yang di pilih 
-                Date tgl = (Date) tanggal.getDate();
-                tgl = (Date) tabel.getValueAt(row, 2);
-
-                if (tgl.before(date1)) {
-                    comp.setBackground(Color.RED);
-                } else {
-                    comp.setBackground(Color.CYAN);
-                }
-                //if (tanggal.getDate().before(date1)){
-                //comp.setBackground(Color.red);
-                //   }
-                //  
-            }
-
-            return comp;
-        }
-    }
+    
 
     public class CustomTableCellRenderer1 extends DefaultTableCellRenderer {
 
@@ -449,13 +444,13 @@ String dt = formatdt.format(tanggal.getDate());
             long datenow = System.currentTimeMillis();
             Date date1 = new Date(datenow);
             SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
-            
+
             Component comp = super.getTableCellRendererComponent(tabel, obj, isSelected, hasFocus, baris, kolom);
 
             if (isSelected) {
                 comp.setBackground(Color.blue);
             } else {
-                
+
                 String t = (String) tabel.getModel().getValueAt(baris, 2);
                 Date dait;
                 try {
@@ -474,7 +469,10 @@ String dt = formatdt.format(tanggal.getDate());
                     }
                 } catch (ParseException ex) {
                     Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
-                } 
+                } catch (Exception ex) {
+                    Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Tidak ada opsi yang dipilih");
+                }
 
             }
 
@@ -482,12 +480,13 @@ String dt = formatdt.format(tanggal.getDate());
         }
     }
     private void simpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_simpanActionPerformed
-       try { countLines1();
+        try {
+            exportmenu1();
+            countLines1();
 
-        addData1(kategori, barang, tanggal);
+            addData1(kategori, barang, tanggal);
 
-        // TODO add your handling code here:
-        
+            // TODO add your handling code here:
             SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
             String date = formatdt.format(tanggal.getDate());
             //Date ttt = tanggal.getDate();
@@ -495,7 +494,6 @@ String dt = formatdt.format(tanggal.getDate());
             Date date1 = new Date(datenow);
 
             //System.out.println(date1);
-
             if (tanggal.getDate().before(date1)) {
                 JOptionPane.showMessageDialog(null, barang.getText() + " Kadaluarsa");
 
@@ -505,14 +503,7 @@ String dt = formatdt.format(tanggal.getDate());
                 // tabel.setBackground(Color.green);
                 // tabel.clearSelection();
             }
-            TableColumn kolomTabel;
-            kolomTabel = tabel.getColumnModel().getColumn(0);
-            kolomTabel.setCellRenderer(new CustomTableCellRenderer());
-            kolomTabel = tabel.getColumnModel().getColumn(1);
-            kolomTabel.setCellRenderer(new CustomTableCellRenderer());
-            kolomTabel = tabel.getColumnModel().getColumn(2);
-            kolomTabel.setCellRenderer(new CustomTableCellRenderer());
-            tbl.addRow(new Object[]{kategori.getText(), barang.getText(), date});
+            
             tabel.setModel(tbl);
             kategori.setText("");
             barang.setText("");
@@ -521,7 +512,8 @@ String dt = formatdt.format(tanggal.getDate());
             JOptionPane.showMessageDialog(null, "Tanggal kosong");
         }
         DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel(); //untuk clear table
-        tMOdel.setRowCount(0); //untuk import
+        tMOdel.setRowCount(0);
+//untuk import
         importmenu();
         TableColumn kolomTabel;
         kolomTabel = tabel.getColumnModel().getColumn(0);
@@ -530,15 +522,14 @@ String dt = formatdt.format(tanggal.getDate());
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
         kolomTabel = tabel.getColumnModel().getColumn(2);
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
-        
+
 //exportmenu1();
         //  } 
 
     }//GEN-LAST:event_simpanActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-     
-      
+
         importmenu();
         TableColumn kolomTabel;
         kolomTabel = tabel.getColumnModel().getColumn(0);
@@ -547,6 +538,7 @@ String dt = formatdt.format(tanggal.getDate());
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
         kolomTabel = tabel.getColumnModel().getColumn(2);
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
+
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentShown
 
@@ -578,14 +570,37 @@ String dt = formatdt.format(tanggal.getDate());
 
     private void muteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muteActionPerformed
         mp3.stop();
-
     }//GEN-LAST:event_muteActionPerformed
 
     private void KembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KembaliActionPerformed
-new Login().setVisible(true);
-this.setVisible(false);
+        new Login().setVisible(true);
+        this.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_KembaliActionPerformed
+
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
+        kategori.setText("");
+        barang.setText("");
+        tanggal.setDate(null); // TODO add your handling code here:
+    }//GEN-LAST:event_clearActionPerformed
+
+    private void editActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editActionPerformed
+
+        try {
+            DefaultTableModel model = (DefaultTableModel) tabel.getModel();
+            int rowpilih = tabel.getSelectedRow();
+            kategori.setText((String) model.getValueAt(rowpilih, 0));
+            barang.setText((String) model.getValueAt(rowpilih, 0));
+            Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) model.getValueAt(rowpilih, 2));
+            tanggal.setDate(date);
+            model.removeRow(rowpilih);
+        } catch (ParseException ex) {
+            Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception Ex) {
+            JOptionPane.showMessageDialog(null, "Tidak ada opsi yang dipilih");
+        }
+// TODO add your handling code here:
+    }//GEN-LAST:event_editActionPerformed
 
     /**
      * @param args the command line arguments
@@ -628,6 +643,8 @@ this.setVisible(false);
     private javax.swing.JButton HapusSemua;
     private javax.swing.JButton Kembali;
     private javax.swing.JTextField barang;
+    private javax.swing.JButton clear;
+    private javax.swing.JButton edit;
     private javax.swing.JButton hapus;
     private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JDialog jDialog1;
