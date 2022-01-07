@@ -223,7 +223,7 @@ public class Menuutama extends javax.swing.JFrame {
 
         jLabel1.setText("Item");
 
-        Kembali.setText("Back");
+        Kembali.setText("Log Out");
         Kembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 KembaliActionPerformed(evt);
