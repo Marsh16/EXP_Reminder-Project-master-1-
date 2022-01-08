@@ -319,11 +319,11 @@ public class Menuutama extends javax.swing.JFrame {
                     .addComponent(HapusSemua)
                     .addComponent(hapus)
                     .addComponent(edit))
-                .addGap(73, 73, 73)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(Kembali)
                     .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18))
+                .addGap(40, 40, 40))
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 651, Short.MAX_VALUE)
         );
 
