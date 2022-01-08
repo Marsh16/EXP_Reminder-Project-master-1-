@@ -29,6 +29,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import jaco.mp3.player.MP3Player;
+import java.time.Instant;
+import java.util.Calendar;
 
 /**
  *
@@ -214,7 +216,7 @@ public class Menuutama extends javax.swing.JFrame {
         jLabel6.setText("username");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        mute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/74554659-audio-symbol-with-speaker-volume-icon-inside-round-silver-and-black-button-emblem-on-black-backgroun.jpg"))); // NOI18N
+        mute.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Tampilan1/2579552.png"))); // NOI18N
         mute.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muteActionPerformed(evt);
@@ -257,6 +259,10 @@ public class Menuutama extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Kembali)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(6, 6, 6)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -279,15 +285,11 @@ public class Menuutama extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(HapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(HapusSemua, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Kembali)
+                        .addComponent(hapus, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(edit, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, Short.MAX_VALUE))
         );
@@ -316,13 +318,13 @@ public class Menuutama extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(HapusSemua)
                     .addComponent(hapus)
+                    .addComponent(HapusSemua)
                     .addComponent(edit))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Kembali)
-                    .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mute, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Kembali))
                 .addGap(40, 40, 40))
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 651, Short.MAX_VALUE)
         );
@@ -436,8 +438,6 @@ public class Menuutama extends javax.swing.JFrame {
 
     }
 
-    
-
     public class CustomTableCellRenderer1 extends DefaultTableCellRenderer {
 
         public Component getTableCellRendererComponent(JTable tabel, Object obj, boolean isSelected, boolean hasFocus, int baris, int kolom) {
@@ -457,11 +457,7 @@ public class Menuutama extends javax.swing.JFrame {
                     dait = formatdt.parse(t);
                     if (dait.before(date1)) {
 
-                        comp.setBackground(Color.RED);
-                        //if (kolom == 3) {
-                        //  JOptionPane.showMessageDialog(null, "Barang Kadaluarsa");
-
-                        //}
+                        comp.setBackground(Color.RED);                     
                         mp3.play();
                     } else {
                         comp.setBackground(Color.CYAN);
@@ -496,14 +492,8 @@ public class Menuutama extends javax.swing.JFrame {
             //System.out.println(date1);
             if (tanggal.getDate().before(date1)) {
                 JOptionPane.showMessageDialog(null, barang.getText() + " Kadaluarsa");
-
-                //tabel.setBackground(Color.red);
-                //tabel.clearSelection();}
-                //else{
-                // tabel.setBackground(Color.green);
-                // tabel.clearSelection();
             }
-            
+
             tabel.setModel(tbl);
             kategori.setText("");
             barang.setText("");
@@ -539,6 +529,52 @@ public class Menuutama extends javax.swing.JFrame {
         kolomTabel = tabel.getColumnModel().getColumn(2);
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
 
+      
+            SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
+
+            //Date ttt = tanggal.getDate();
+            long datenow = System.currentTimeMillis();
+            Date date1 = new Date(datenow);
+       
+            String t = (String) tabel.getModel().getValueAt(baris, 2);
+            Date dait;           
+            try {
+                dait = formatdt.parse(t);
+                 Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE, 7);
+            Date seminggu = cal.getTime();
+            String sm = formatdt.format(seminggu);              
+                 Date semingguexp = formatdt.parse(sm);                
+            if (semingguexp.equals(dait)){
+               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 7 Days left");
+            }
+              dait = formatdt.parse(t);
+                 Calendar cal2 = Calendar.getInstance();
+            cal2.add(Calendar.DATE, 1);
+            Date sehari = cal2.getTime();
+            String sm1 = formatdt.format(sehari);              
+                 Date sehariexp = formatdt.parse(sm1);  
+            if (sehariexp.equals(dait)){
+               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 1 Days left");
+            }
+             dait = formatdt.parse(t);
+                 Calendar cal3 = Calendar.getInstance();
+            cal3.add(Calendar.MONTH, 1);
+            Date sebulan = cal3.getTime();
+            String sm2 = formatdt.format(sebulan);              
+                 Date sebulanexp = formatdt.parse(sm2);  
+            if (sebulanexp.equals(dait)){
+               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 30 Days left");
+            }
+            } catch (ParseException ex) {
+                Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+            
+           
+
+        
+
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentShown
 
@@ -557,10 +593,14 @@ public class Menuutama extends javax.swing.JFrame {
     }//GEN-LAST:event_hapusActionPerformed
 
     private void HapusSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HapusSemuaActionPerformed
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Yakin ingin menghapus semua data?", "Delete All", dialogButton);
+        if (dialogResult == 0) {
+            DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel();
+            tMOdel.setRowCount(0);
+            exportmenu1();
+        }
 
-        DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel();
-        tMOdel.setRowCount(0);
-        exportmenu1();
 // TODO add your handling code here:
     }//GEN-LAST:event_HapusSemuaActionPerformed
 

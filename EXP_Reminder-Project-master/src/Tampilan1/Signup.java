@@ -35,15 +35,12 @@ public class Signup extends javax.swing.JFrame {
     }
 
     void createFolder() {
-        if (!database.exists()) {
-            database.mkdirs();           
+        if (!database.exists()&& !database1.exists()) {
+            database.mkdirs();     //logins
+            database1.mkdirs();//useraccount
             //jika tidak ada folder database, maka folder database akan dibuat
         }
-        if (!database1.exists()) {
-            database1.mkdirs();
-            //jika tidak ada folder database, maka folder database akan dibuat
-            //untuk user account
-        }
+       
     }
 
     void countLines() {
