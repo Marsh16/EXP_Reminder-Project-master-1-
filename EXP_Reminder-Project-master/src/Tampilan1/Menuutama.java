@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import jaco.mp3.player.MP3Player;
-import java.time.Instant;
+import java.awt.Toolkit;
 import java.util.Calendar;
 
 /**
@@ -49,6 +49,9 @@ public class Menuutama extends javax.swing.JFrame {
     public Menuutama() {
         initComponents();
 
+    }
+    public void icon(){
+    this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
 
     public Menuutama(String username1) {
@@ -563,7 +566,7 @@ void daysleft(){
      }
 }
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-
+icon();
         importmenu();
         TableColumn kolomTabel;
         kolomTabel = tabel.getColumnModel().getColumn(0);

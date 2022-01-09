@@ -4,6 +4,7 @@
  */
 package Tampilan1;
 
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -32,7 +33,9 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         initComponents();
 
     }
-
+ public void icon(){
+    this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -84,6 +87,11 @@ public class Login extends javax.swing.JFrame implements ActionListener {
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(0, 0, 0));
         setName("EXP Reminder"); // NOI18N
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -167,7 +175,7 @@ public class Login extends javax.swing.JFrame implements ActionListener {
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 235, Short.MAX_VALUE)
                     .addComponent(canvas1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 686, Short.MAX_VALUE)))
+                    .addGap(0, 698, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,6 +326,10 @@ public class Login extends javax.swing.JFrame implements ActionListener {
 
         checkDatas(user, pass); // TODO add your handling code here:
     }//GEN-LAST:event_loginbuttonActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+icon();        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentShown
 
     /**
      * @param args the command line arguments
