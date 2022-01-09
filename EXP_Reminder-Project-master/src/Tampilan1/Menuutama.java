@@ -517,7 +517,46 @@ public class Menuutama extends javax.swing.JFrame {
         //  } 
 
     }//GEN-LAST:event_simpanActionPerformed
+void daysleft(){
+     for (int i = 0; i < tabel.getRowCount(); i++) {
+     SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
 
+            //Date ttt = tanggal.getDate();
+            long datenow = System.currentTimeMillis();
+            Date date1 = new Date(datenow);
+       
+           
+            String t = (String) tabel.getModel().getValueAt(i, 2);
+            Date dait;           
+            try {
+                dait = formatdt.parse(t);
+                 Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DATE, 7);
+            Date seminggu = cal.getTime();
+            String sm = formatdt.format(seminggu);              
+                 Date semingguexp = formatdt.parse(sm); 
+                 Calendar cal2 = Calendar.getInstance();
+            cal2.add(Calendar.DATE, 1);
+            Date sehari = cal2.getTime();
+            String sm1 = formatdt.format(sehari);              
+                 Date sehariexp = formatdt.parse(sm1);
+                  Calendar cal3 = Calendar.getInstance();
+            cal3.add(Calendar.MONTH, 1);
+            Date sebulan = cal3.getTime();
+            String sm2 = formatdt.format(sebulan);              
+                 Date sebulanexp = formatdt.parse(sm2);           
+            if (semingguexp.equals(dait)){             
+               JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Week left");        
+            }else if (sehariexp.equals(dait)){            
+                     JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Day left");
+            } else if (sebulanexp.equals(dait)){              
+               JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Month left");    
+            }
+            } catch (ParseException ex) {
+                Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
+            }
+     }
+}
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
 
         importmenu();
@@ -528,50 +567,10 @@ public class Menuutama extends javax.swing.JFrame {
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
         kolomTabel = tabel.getColumnModel().getColumn(2);
         kolomTabel.setCellRenderer(new CustomTableCellRenderer1());
-
-      
-            SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
-
-            //Date ttt = tanggal.getDate();
-            long datenow = System.currentTimeMillis();
-            Date date1 = new Date(datenow);
-       
-            String t = (String) tabel.getModel().getValueAt(baris, 2);
-            Date dait;           
-            try {
-                dait = formatdt.parse(t);
-                 Calendar cal = Calendar.getInstance();
-            cal.add(Calendar.DATE, 7);
-            Date seminggu = cal.getTime();
-            String sm = formatdt.format(seminggu);              
-                 Date semingguexp = formatdt.parse(sm);                
-            if (semingguexp.equals(dait)){
-               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 7 Days left");
-            }
-              dait = formatdt.parse(t);
-                 Calendar cal2 = Calendar.getInstance();
-            cal2.add(Calendar.DATE, 1);
-            Date sehari = cal2.getTime();
-            String sm1 = formatdt.format(sehari);              
-                 Date sehariexp = formatdt.parse(sm1);  
-            if (sehariexp.equals(dait)){
-               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 1 Days left");
-            }
-             dait = formatdt.parse(t);
-                 Calendar cal3 = Calendar.getInstance();
-            cal3.add(Calendar.MONTH, 1);
-            Date sebulan = cal3.getTime();
-            String sm2 = formatdt.format(sebulan);              
-                 Date sebulanexp = formatdt.parse(sm2);  
-            if (sebulanexp.equals(dait)){
-               JOptionPane.showMessageDialog(null, tabel.getValueAt(baris, 1)+ ": 30 Days left");
-            }
-            } catch (ParseException ex) {
-                Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-            
-           
+if (tabel.getRowCount()!= 0){
+    daysleft();
+}
+    
 
         
 
