@@ -499,7 +499,7 @@ public class Menuutama extends javax.swing.JFrame {
             barang.setText("");
             tanggal.setDate(null);
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, "Tanggal kosong");
+            JOptionPane.showMessageDialog(null, "Input Expired Date");
         }
         DefaultTableModel tMOdel = (DefaultTableModel) tabel.getModel(); //untuk clear table
         tMOdel.setRowCount(0);
@@ -524,12 +524,14 @@ void daysleft(){
             //Date ttt = tanggal.getDate();
             long datenow = System.currentTimeMillis();
             Date date1 = new Date(datenow);
-       
+       String datenw = formatdt.format(date1);
+     
            
             String t = (String) tabel.getModel().getValueAt(i, 2);
             Date dait;           
             try {
                 dait = formatdt.parse(t);
+                  Date dtnow=formatdt.parse(datenw);
                  Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DATE, 7);
             Date seminggu = cal.getTime();
@@ -551,6 +553,9 @@ void daysleft(){
                      JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Day left");
             } else if (sebulanexp.equals(dait)){              
                JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Month left");    
+            }
+            else if (dtnow.equals(dait)) {
+                 JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ " Expired");  
             }
             } catch (ParseException ex) {
                 Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
