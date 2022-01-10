@@ -29,7 +29,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 import jaco.mp3.player.MP3Player;
-import java.time.Instant;
+import java.awt.Toolkit;
 import java.util.Calendar;
 
 /**
@@ -49,6 +49,9 @@ public class Menuutama extends javax.swing.JFrame {
     public Menuutama() {
         initComponents();
 
+    }
+    public void icon(){
+    this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
     }
 
     public Menuutama(String username1) {
@@ -521,17 +524,17 @@ void daysleft(){
      for (int i = 0; i < tabel.getRowCount(); i++) {
      SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
 
-            //Date ttt = tanggal.getDate();
+       
             long datenow = System.currentTimeMillis();
             Date date1 = new Date(datenow);
-       String datenw = formatdt.format(date1);
+     // String datenw = formatdt.format(date1);
      
            
             String t = (String) tabel.getModel().getValueAt(i, 2);
             Date dait;           
             try {
                 dait = formatdt.parse(t);
-                  Date dtnow=formatdt.parse(datenw);
+                // Date dtnow=formatdt.parse(datenw);
                  Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DATE, 7);
             Date seminggu = cal.getTime();
@@ -554,16 +557,15 @@ void daysleft(){
             } else if (sebulanexp.equals(dait)){              
                JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Month left");    
             }
-            else if (dtnow.equals(dait)) {
-                 JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ " Expired");  
-            }
-            } catch (ParseException ex) {
+           //else if (dtnow.equals(dait)) {
+            //     JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ " Expired"); } 
+           } catch (ParseException ex) {
                 Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
             }
      }
 }
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-
+icon();
         importmenu();
         TableColumn kolomTabel;
         kolomTabel = tabel.getColumnModel().getColumn(0);
