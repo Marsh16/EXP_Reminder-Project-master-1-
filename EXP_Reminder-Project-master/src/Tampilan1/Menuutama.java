@@ -636,7 +636,7 @@ if (tabel.getRowCount()!= 0){
             DefaultTableModel model = (DefaultTableModel) tabel.getModel();
             int rowpilih = tabel.getSelectedRow();
             kategori.setText((String) model.getValueAt(rowpilih, 0));
-            barang.setText((String) model.getValueAt(rowpilih, 0));
+            barang.setText((String) model.getValueAt(rowpilih, 1));
             Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) model.getValueAt(rowpilih, 2));
             tanggal.setDate(date);
             model.removeRow(rowpilih);
