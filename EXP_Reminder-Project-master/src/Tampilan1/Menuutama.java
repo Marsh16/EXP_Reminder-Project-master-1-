@@ -524,17 +524,17 @@ void daysleft(){
      for (int i = 0; i < tabel.getRowCount(); i++) {
      SimpleDateFormat formatdt = new SimpleDateFormat("dd-MM-yyyy");
 
-            //Date ttt = tanggal.getDate();
+       
             long datenow = System.currentTimeMillis();
             Date date1 = new Date(datenow);
-       String datenw = formatdt.format(date1);
+     // String datenw = formatdt.format(date1);
      
            
             String t = (String) tabel.getModel().getValueAt(i, 2);
             Date dait;           
             try {
                 dait = formatdt.parse(t);
-                  Date dtnow=formatdt.parse(datenw);
+                // Date dtnow=formatdt.parse(datenw);
                  Calendar cal = Calendar.getInstance();
             cal.add(Calendar.DATE, 7);
             Date seminggu = cal.getTime();
@@ -557,10 +557,9 @@ void daysleft(){
             } else if (sebulanexp.equals(dait)){              
                JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ ": 1 Month left");    
             }
-            else if (dtnow.equals(dait)) {
-                 JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ " Expired");  
-            }
-            } catch (ParseException ex) {
+           //else if (dtnow.equals(dait)) {
+            //     JOptionPane.showMessageDialog(null, tabel.getValueAt(i, 1)+ " Expired"); } 
+           } catch (ParseException ex) {
                 Logger.getLogger(Menuutama.class.getName()).log(Level.SEVERE, null, ex);
             }
      }
